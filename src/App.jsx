@@ -1,8 +1,13 @@
 import Header from "./components/header"
+import UserInput from "./components/userInput"
+
 
 function App() {
   return (
-    <Header/>
+    <body>
+      <Header />
+      <UserInput />
+    </body>
   )
 }
 
