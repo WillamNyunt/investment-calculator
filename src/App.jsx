@@ -1,6 +1,7 @@
 import Header from "./components/header"
 import UserInput from "./components/userInput"
 import { useState, Fragment } from "react"
+import { calculateInvestmentResults } from "./util/investment"
 
 const initialInput = {
   initialInvestment: '',
@@ -10,16 +11,18 @@ const initialInput = {
 }
 
 function App() {
-  const [userInputValue, setUserInputValue] = useState(initialInput)
+  const [userInput, setUserInput] = useState(initialInput)
 
   function userInputOnChangeHandler(e) {
-    setUserInputValue(prevInput => { return { ...prevInput, ...e } })
+    setUserInput(prevInput => { return { ...prevInput, ...e } })
   }
+
+
 
   return (
     <Fragment>
       <Header />
-      <UserInput userInput={userInputValue} changeUserInput={userInputOnChangeHandler} />
+      <UserInput userInput={userInput} changeUserInput={userInputOnChangeHandler} />
     </Fragment>
   )
 }
