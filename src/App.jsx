@@ -2,27 +2,35 @@ import Header from "./components/header"
 import UserInput from "./components/userInput"
 import { useState, Fragment } from "react"
 import { calculateInvestmentResults } from "./util/investment"
-
+import Result from "./components/result"
 const initialInput = {
-  initialInvestment: '',
-  annualInvestment: '',
-  expectedReturn: '',
-  duration: '',
+  initialInvestment: 0,
+  annualInvestment: 0,
+  expectedReturn: 0,
+  duration: 0,
 }
 
 function App() {
-  const [userInput, setUserInput] = useState(initialInput)
+  const [userInputs, setUserInputs] = useState(initialInput)
+  let investmentArr = []
 
-  function userInputOnChangeHandler(e) {
-    setUserInput(prevInput => { return { ...prevInput, ...e } })
+  investmentArr = [...calculateInvestmentResults(userInputs)];
+  
+  if (investmentArr) {
+    
   }
 
-
+  function userInputOnChangeHandler(e) {
+    setUserInputs(prevInput => { 
+      return ({ ...prevInput, ...e }) 
+    })
+  }
 
   return (
     <Fragment>
       <Header />
-      <UserInput userInput={userInput} changeUserInput={userInputOnChangeHandler} />
+      <UserInput userInput={userInputs} changeUserInput={userInputOnChangeHandler} />
+      <Result tableValues={investmentArr} inputValues={userInputs} />
     </Fragment>
   )
 }
