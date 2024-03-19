@@ -4,19 +4,19 @@ import UserInputField from './userInputField'
 export default function UserInput({userInput, changeUserInput}) {
 
     function handleInvestmentChange(e) {
-        changeUserInput({initialInvestment: e.target.value})
+        changeUserInput({initialInvestment:  e.target.value === '' ? '' : Number(e.target.value)})
     }
 
     function handleAnnualInvestmentChange(e) {
-        changeUserInput({annualInvestment: e.target.value})
+        changeUserInput({annualInvestment: e.target.value === '' ? '' : Number(e.target.value)})
     }
 
     function handleReturnChange(e) {
-        changeUserInput({expectedReturn: e.target.value})
+        changeUserInput({expectedReturn: e.target.value === '' ? '' : Number(e.target.value)})
     }
 
     function handleDurationChange(e) {
-        changeUserInput({duration: e.target.value})
+        changeUserInput({duration: e.target.value === '' ? '' : Number(e.target.value)})
     }
 
 
