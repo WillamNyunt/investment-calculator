@@ -12,13 +12,8 @@ const initialInput = {
 
 function App() {
   const [userInputs, setUserInputs] = useState(initialInput)
-  let investmentArr = []
-
-  investmentArr = [...calculateInvestmentResults(userInputs)];
   
-  if (investmentArr) {
-    
-  }
+  let investmentArr = [...calculateInvestmentResults(userInputs)];
 
   function userInputOnChangeHandler(e) {
     setUserInputs(prevInput => { 

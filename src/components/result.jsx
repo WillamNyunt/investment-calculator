@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Result({ tableValues, inputValues }) {
+export default function Result({ tableValues }) {
 
     console.log(tableValues)
     return (
