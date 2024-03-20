@@ -15,9 +15,9 @@ function App() {
   
   let investmentArr = [...calculateInvestmentResults(userInputs)];
 
-  function userInputOnChangeHandler(e) {
+  function userInputOnChangeHandler(input) {
     setUserInputs(prevInput => { 
-      return ({ ...prevInput, ...e }) 
+      return ({ ...prevInput, ...input }) 
     })
   }
 
